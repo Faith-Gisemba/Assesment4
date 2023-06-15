@@ -146,11 +146,31 @@ print("tasty")
 # seats for customers, manage passenger information, and generate booking
 # confirmations.
 
+class FlightBooking:
+    def __init__(self):
+        self.flight = []
+
+    def add_flight(self, flight):
+        self.flight.append(flight)
+
+    def search_flights(self, destination, date):
+        available_flights = []
+        for flight in self.flight:
+            if flight.destination == destination and flight.date == date and flight.available_seats > 0:
+                available_flights.append(flight)
+        return available_flights
+
+
+class Flight:
+    def __init__(self,destination, date, available_seats):
+        self.destination = destination
+        self.date = date
+        self.available_seats = available_seats
+        self.passengers = []
 
 
 
-
-
+fly = Flight()
 # 8. Create a LibraryCatalog class that handles the cataloging and management of
 # books in a library. Implement methods to add new books, search for books by
 # title or author, keep track of available copies, and display book details.
